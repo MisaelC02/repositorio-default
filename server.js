@@ -6,7 +6,7 @@ const path = require("path");
 const mysql = require("mysql");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
-const sessions = sessions("sessions");
+const sessions = require("express-sessions");
 const port = 2500;
 
 app.set("view engine", "ejs");
