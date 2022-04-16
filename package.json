@@ -1,35 +1,32 @@
 {
-    "dependencies": {
-        "bcrypt": "^5.0.1",
-        "body-parser": "^1.19.0",
-        "cors": "^2.8.5",
-        "ejs": "^3.1.6",
-        "express": "^4.17.3",
-        "express-sessions": "^1.0.6",
-        "moment": "^2.29.2",
-        "morgan": "^1.10.0",
-        "mysql": "^2.18.1",
-        "path": "^0.12.7"
-    },
-    "scripts": {
-        "start": "node server.js",
-        "dev": "nodemon"
-    },
-    "name": "repositorio-default",
+    "name": "bdprueba",
     "version": "1.0.0",
-    "main": "server.js",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/jeremiasAgueroDiaz/repositorio-default.git"
+        "url": "git+https://github.com/MisaelC02/BDprueba.git"
     },
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/jeremiasAgueroDiaz/repositorio-default/issues"
+        "url": "https://github.com/MisaelC02/BDprueba/issues"
     },
-    "homepage": "https://github.com/jeremiasAgueroDiaz/repositorio-default#readme",
-    "description": "",
+    "homepage": "https://github.com/MisaelC02/BDprueba#readme",
+    "dependencies": {
+        "bcrypt": "^5.0.1",
+        "body-parser": "^1.19.2",
+        "cors": "^2.8.5",
+        "ejs": "^3.1.6",
+        "express": "^4.17.3",
+        "express-session": "^1.17.2",
+        "mysql": "^2.18.1"
+    },
     "devDependencies": {
         "nodemon": "^2.0.15"
-    }
+    },
+    "description": ""
 }

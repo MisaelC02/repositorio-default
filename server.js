@@ -3,17 +3,19 @@ const app = express();
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
 const path = require("path");
-const mysql = require("mysql");
-const cors = require("cors");
-const bcrypt = require("bcrypt");
-const sessions = require("express-sessions");
+let mysql = require("mysql");
+let bcrypt = require("bcrypt");
+let cors = require("cors");
+let session = require("express-session");
+let creado = false;
+
 const port = 2500;
 
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
-app.use(express.static(path.join(__dirname, "public")));
+app.set("views", path.join(__dirname, "view"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(
     session({
@@ -23,7 +25,7 @@ app.use(
     })
 );
 
-const db = mysql.createConnection({
+db = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
@@ -38,10 +40,26 @@ db.connect(function (err) {
     console.log("concetado al servidor con el id" + db.threadId);
 });
 
-app.get("/", (req, res) => {
-    res.render("File");
-    //res.render("pruebas", { p : p});
+//mostrar todo lo que esta en la BD
+// app.get("/#", function (req, res) {
+//     let sql = `SELECT * FROM pers`;
+//     db.query(sql, function (err, data, fields) {
+//         if (err) throw err;
+//         res.render("#", { data: data, creado: creado });
+//     });
+// });
+
+app.get("/inicio", (req, res) => {
+    res.render("index", { creado: creado });
 });
+
+// app.get("/#", (req, res) => {
+//     req.session.destroy(function (err) {
+//         creado = false;
+//         console.log("Destruido");
+//     });
+//     res.redirect("#");
+// });
 
 app.listen(port, () => {
     console.log(`El puerto es  http://localhost:${port}`);
